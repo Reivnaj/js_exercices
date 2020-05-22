@@ -23,16 +23,49 @@ const entrepreneurs = [
 
 
 
-
+console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
 
 console.log("Filtre dans cette liste les entrepreneurs qui sont nés dans les années 70.")
 for(let i=0; i < entrepreneurs.length; i++){
   if ((1969 < entrepreneurs[i].year)&&(entrepreneurs[i].year < 1980)) {
-    console.log(entrepreneurs[i])
+    console.log(entrepreneurs[i]);
   }
 }
-// console.log("Sors une array qui contient le prénom et le nom des entrepreneurs.")
-//
-// console.log("Quel âge aurait chaque inventeur aujourd'hui ?")
-//
-// console.log("Trie les entrepreneurs par ordre alphabétique du nom de famille.")
+
+console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
+
+console.log("Sors une array qui contient le prénom et le nom des entrepreneurs.")
+let names = [];
+entrepreneurs.forEach(entrepreneur =>{
+  names.push(`${entrepreneur.first} ${entrepreneur.last}`);
+})
+console.log(names)
+
+console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
+
+console.log("Quel âge aurait chaque inventeur aujourd'hui ?")
+entrepreneurs.forEach(entrepreneur =>{
+  let actual_age = 2020-entrepreneur.year;
+  console.log(`${entrepreneur.first} ${entrepreneur.last} à/aurait ${actual_age} ans.`);
+})
+
+console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv")
+
+console.log("Trie les entrepreneurs par ordre alphabétique du nom de famille.")
+function compare(a, b) {
+  // Use toUpperCase() to ignore character casing
+  const lastA = a.last.toUpperCase();
+  const lastB = b.last.toUpperCase();
+
+  let comparison = 0;
+  if (lastA > lastB) {
+    comparison = 1;
+  } else if (lastA < lastB) {
+    comparison = -1;
+  }
+  return comparison;
+}
+console.log(entrepreneurs.sort(compare));
